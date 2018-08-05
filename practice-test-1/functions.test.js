@@ -1,5 +1,25 @@
 const functions = require('./functions');
 
+// beforeEach(() => initTest);
+// afterEach(() => closeTest);
+
+beforeAll(() => initTest);
+afterAll(() => closeTest);
+
+const initTest = () => console.log('Test Initialized...');
+const closeTest = () => console.log('Test Complete...');
+
+const nameCheck = () => console.log('Checking name....');
+
+describe('Checking Names', () => {
+  beforeEach(() => nameCheck());
+
+  test('User is Joe', () => {
+    const user = 'Joe';
+    expect(user).toBe('Joe');
+  });
+});
+
 //toBe is for primitives
 test('Adds 2 + 2 to equal 4', () => {
   expect(functions.add(2, 2)).toBe(4);
